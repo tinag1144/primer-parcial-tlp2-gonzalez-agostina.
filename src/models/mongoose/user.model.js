@@ -34,6 +34,7 @@ const UserSchema = new Schema(
       default: null 
     },
 
+    // ! FALTA COMPLETAR ACA
     profile: {
       employee_number:{
       type: String,
@@ -60,13 +61,19 @@ const UserSchema = new Schema(
   }
 
 
-    // ! FALTA COMPLETAR ACA
   },
   { timestamps: true }
 );
-
-
-
 // ! FALTA COMPLETAR ACA
+
+UserSchema.virtual("assets", {
+    ref: "assets",
+    localField: "_id",
+    foreignField: "responsible"
+});
+
+UserSchema.set("toObject", { virtuals: true });
+UserSchema.set("toJSON", { virtuals: true });
+
 
 export const UserModel = model("User", UserSchema);
