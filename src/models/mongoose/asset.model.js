@@ -26,9 +26,16 @@ const AssetSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'UserSchema',
       require: true
-    }
+    },
     
+     categories: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Category",
+      },
+    ],
   },
+
   { timestamps: true }
 );
 

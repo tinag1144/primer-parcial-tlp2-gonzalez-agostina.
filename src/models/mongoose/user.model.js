@@ -72,7 +72,7 @@ UserSchema.virtual("assets", {
     foreignField: "responsible"
 });
 
-UserSchema.set("toObject", { virtuals: true });
+
 UserSchema.set("toJSON", { virtuals: true });
 
 
