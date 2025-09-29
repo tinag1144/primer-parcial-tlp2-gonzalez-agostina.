@@ -1,10 +1,13 @@
+import { body } from "express-validator";
+import { UserModel } from "../../models/mongoose/user.model.js";
+
 export const registerValidation = [
   // TODO: completar las validaciones para el registro
       body("username")
           .notEmpty().withMessage("El nombre de usuario es obligatorio")
           .isLength({ min: 3, max: 20 }).withMessage("El nombre de usuario debe tener entre 3 y 20 caracteres")
           .custom(async (value) => {
-              const user = await userModel.findOne({ where: { username: value } });
+              const user = await UserModel.findOne({ where: { username: value } });
               if (user) {
                   throw new Error("El nombre de usuario ya está en uso");
                   
@@ -15,7 +18,7 @@ export const registerValidation = [
           .notEmpty().withMessage("El correo electrónico es obligatorio")
           .isEmail().withMessage("El correo electrónico no es válido")
           .custom(async (value) => {
-              const user = await userModel.findOne({ where: { email: value } });      
+              const user = await UserModel.findOne({ where: { email: value } });      
               if (user) {
                   throw new Error("El correo electrónico ya está en uso");
               }

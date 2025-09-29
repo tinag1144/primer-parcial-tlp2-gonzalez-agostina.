@@ -1,5 +1,4 @@
 import { DataTypes } from "sequelize";
-import { UserModel } from "./user.model.js";
 
 export const ProfileModel = sequelize.define("Profile", {
   employee_number: {

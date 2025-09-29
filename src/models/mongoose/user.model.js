@@ -2,7 +2,7 @@ import { model, Schema } from "mongoose";
 
 // TODO: completar relacion embebida y configurar el virtuals para el populate inverso con assets
 
-const UserSchema = new Schema(
+export const UserSchema = new Schema(
   {
     username: {
       type: String,
@@ -67,7 +67,7 @@ const UserSchema = new Schema(
 // ! FALTA COMPLETAR ACA
 
 UserSchema.virtual("assets", {
-    ref: "assets",
+    ref: "Asset",
     localField: "_id",
     foreignField: "responsible"
 });

@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-export const UserModel = sequelize.define("User", {
+const UserModel = sequelize.define("User", {
   username: { type: DataTypes.STRING(20), allowNull: false, unique: true },
   email: { type: DataTypes.STRING(100), allowNull: false, unique: true },
   password: { type: DataTypes.STRING(255), allowNull: false },
@@ -9,4 +9,7 @@ export const UserModel = sequelize.define("User", {
     allowNull: false,
     defaultValue: "secretary",
   },
+}, {
+  paranoid: true,
+  timestamps: true
 });

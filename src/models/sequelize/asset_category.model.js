@@ -1,6 +1,4 @@
 import { DataTypes } from "sequelize";
-import { AssetModel } from "./asset.model.js";
-import { CategoryModel } from "./category.model.js";
 
 export const AssetCategoryModel = sequelize.define("AssetCategory", {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
